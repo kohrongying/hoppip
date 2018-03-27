@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+
+section {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: absolute;
+}
+
+button {
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	font-family: 'Poppins';
+	background-color: black;
+	color: white;
+	margin: 5px;
+}
+
+h1, p {
+	font-family: 'Poppins';
+}
+
+.beige {
+	background-color: beige;
+}
+.red {
+	background-color: red;
+}
+
+.green {
+	background-color: lightgreen;
+}
+
+.blue {
+	background-color: lightblue;
+}
+
+.active {
+	visibility: visible;	
+	z-index: 999;
+}
+
+.inactive {
+	visibility: hidden;
+}
+
+.slideFromRight-active {
+	animation: slideFromRight 2s;
+}
+
+.slideToLeft-active {
+	animation: slideToLeft 2s;
+}
+
+.slideToRight-active {
+	animation: slideToRight 2s;
+}
+
+.slideFromLeft-active {
+	animation: slideFromLeft 2s;
+}
+
+@keyframes slideFromRight{
+	from {
+		left: 100%;
+	}
+	to {
+		left: 0;
+	}
+}
+
+@keyframes slideToLeft {
+	from {
+		right: 0;
+	}
+	to {
+		right: 100%;
+	}
+}
+
+@keyframes slideFromLeft{
+	from {
+		right: 100%;
+	}
+	to {
+		right: 0;
+	}
+}
+
+@keyframes slideToRight {
+	from {
+		left: 0;
+	}
+	to {
+		left: 100%;
+	}
+}
