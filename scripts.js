@@ -24,6 +24,7 @@ $(document).ready(function(){
 			})
 		}
 	})
+	console.log(hoppips);
 	
 	$('body').keydown(function(e){
 		let slide_index = $('.active').attr("data-hopp");
@@ -49,7 +50,7 @@ $(document).ready(function(){
 	})
 
 	$('body').on('click', '#next', function(){
-		let slide_index = $(this).parent().attr("data-hopp");
+		let slide_index = $(this).closest('.active').attr("data-hopp");
 		let current_slide = $(hoppips[slide_index].current);
 		let next_slide = $(hoppips[slide_index].next);
 		let prev_slide = $(hoppips[slide_index].prev);
@@ -63,7 +64,7 @@ $(document).ready(function(){
 	})
 
 	$('body').on('click', '#prev', function(){
-		let slide_index = $(this).parent().attr("data-hopp");
+		let slide_index = $(this).closest('.active').attr("data-hopp");
 		let current_slide = $(hoppips[slide_index].current);
 		let next_slide = $(hoppips[slide_index].next);
 		let prev_slide = $(hoppips[slide_index].prev);

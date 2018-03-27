@@ -21,23 +21,43 @@ section.hoppip {
 button {
 	padding: 5px 10px;
 	border-radius: 5px;
-	border: none;
+	border: 1px solid black;
 	cursor: pointer;
 	font-family: 'Poppins';
-	background-color: black;
-	color: white;
+	background-color: transparent;
+	color: black;
 	margin: 5px;
 }
 
-h1, p {
+.btn-black {
+	background-color: black;
+	color: white;
+}
+
+h1 {
 	font-family: 'Poppins';
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 56px;
+}
+
+p {
+	font-family: 'Poppins';
+	margin-top: 10px;
+	margin-bottom: 8px;
+}
+
+#welcome-msg {
+	font-size: 14px;
+	text-align: center;
+	width: 350px;
 }
 
 .beige {
 	background-color: beige;
 }
 .red {
-	background-color: red;
+	background-color: pink;
 }
 
 .green {
