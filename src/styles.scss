@@ -56,6 +56,7 @@ p {
 .beige {
 	background-color: beige;
 }
+
 .red {
 	background-color: pink;
 }
@@ -93,6 +94,24 @@ p {
 	animation: slideFromLeft .6s ease both;
 }
 
+.slideFromBottom-active {
+	animation: slideFromBottom .6s ease both;
+}
+
+.slideToTop-active {
+	animation: slideToTop .6s ease both;
+}
+
+.slideFromTop-active {
+	animation: slideFromTop .6s ease both;
+}
+
+.slideToBottom-active {
+	animation: slideToBottom .6s ease both;
+}
+
+/* KEYFRAMES */
+
 @keyframes slideFromRight{
 	from {
 		left: 100%;
@@ -126,5 +145,41 @@ p {
 	}
 	to {
 		left: 100%;
+	}
+}
+
+@keyframes slideFromBottom {
+	from {
+		top: 100%;
+	}
+	to {
+		top: 0;
+	}
+}
+
+@keyframes slideToTop {
+	from {
+		bottom: 0;
+	}
+	to {
+		bottom: 100%;
+	}
+}
+
+@keyframes slideFromTop {
+	from {
+		bottom: 100%;
+	}
+	to {
+		bottom: 0;
+	}
+}
+
+@keyframes slideToBottom{
+	from {
+		top: 0;
+	}
+	to {
+		top: 100%;
 	}
 }

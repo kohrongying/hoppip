@@ -9,7 +9,7 @@ const gulp = require('gulp'),
 gulp.task('styles', function(){
   	return gulp.src('src/styles.scss')
 	    .pipe(sass({outputStyle: 'compressed'}))
-	    .pipe(autoprefixer()) // Passes it through gulp-autoprefixer
+	    .pipe(autoprefixer())
 	    .pipe(cssnano())
 	    .pipe(gulp.dest('docs/css'))
         .pipe(browserSync.reload({
@@ -34,25 +34,6 @@ gulp.task('html', function() {
 gulp.task('clean', function(){
 	return del(['docs/js', 'docs/css']);
 })
-
-// Start browserSync server
-// gulp.task('browserSync', function() {
-//   browserSync({
-//     server: {
-//       baseDir: 'docs'
-//     }
-//   })
-// });
-
-// gulp.task('default', ['clean'], function(){
-// 	gulp.start('styles', 'scripts', 'html', 'browserSync');
-// })
-
-// gulp.task('watch', function(){
-// 	gulp.watch('docs/*.html', browserSync.reload);
-// 	gulp.watch('src/styles.scss', ['styles']);
-// 	gulp.watch('src/scripts.js', ['scripts'])
-// })
 
 gulp.task('serve', ['clean'], function(){
 	gulp.start('styles', 'scripts', 'html');

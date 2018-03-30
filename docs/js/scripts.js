@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	let hoppips = [];
+	let numHops = 0;
 
 	const hops = $('.hoppip');
 	hops.each(function(index, value){
@@ -24,70 +25,49 @@ $(document).ready(function(){
 			})
 		}
 	})
-	console.log(hoppips);
-	
-	$('body').keydown(function(e){
+
+	const transitions = [
+		  ['slideToLeft-active', 'slideFromRight-active'],
+		  ['slideToLeft-active', 'slideFromRight-active'],
+		  ['slideToTop-active', 'slideFromBottom-active'],
+		  ['slideToRight-active', 'slideFromLeft-active'],
+		  ['slideToBottom-active', 'slideFromTop-active'],
+	];
+
+	const applyTransition = () => {
+		
+		let next_class = transitions[numHops][1];
+		let current_class = transitions[numHops][0];
+
 		let slide_index = $('.active').attr("data-hopp");
 		let current_slide = $(hoppips[slide_index].current);
 		let next_slide = $(hoppips[slide_index].next);
 		let prev_slide = $(hoppips[slide_index].prev);
 
-		if (e.keyCode == 39) { //right
-
-			next_slide.addClass('slideFromRight-active active').removeClass('inactive');
-			current_slide.addClass('slideToLeft-active').removeClass('active');
-			
-			current_slide.bind('oanimationend animationend webkitAnimationEnd', function() { 
-			    current_slide.removeClass('slideToLeft-active')
-				if (current_slide.hasClass('active')==false){
-					current_slide.addClass('inactive');
-				} 
-			});
-			next_slide.bind('oanimationend animationend webkitAnimationEnd', function() { 
-				next_slide.removeClass('slideFromRight-active');
-			})
-		} else if (e.keyCode == 37) { //left
-			current_slide.addClass('slideToRight-active').removeClass('active slideFromRight-active');
-			prev_slide.addClass('active slideFromLeft-active').removeClass('inactive slideToLeft-active');
-			
-			current_slide.bind('oanimationend animationend webkitAnimationEnd', function() { 
-			    if (current_slide.hasClass('active')==false){
-					current_slide.addClass('inactive');
-				}
-				current_slide.removeClass('slideToRight-active'); 
-			});
-			prev_slide.bind('oanimationend animationend webkitAnimationEnd', function() { 
-				prev_slide.removeClass('slideFromLeft-active');
-			})
-		}
-	})
-
-	$('body').on('click', '#next', function(){
-		let slide_index = $(this).closest('.active').attr("data-hopp");
-		let current_slide = $(hoppips[slide_index].current);
-		let next_slide = $(hoppips[slide_index].next);
-		let prev_slide = $(hoppips[slide_index].prev);
-
-		next_slide.addClass('slideFromRight-active active').removeClass('inactive');
-		current_slide.addClass('slideToLeft-active').removeClass('active');
+		next_slide.addClass(next_class+' active').removeClass('inactive');
+		current_slide.addClass(current_class).removeClass('active');
 		
-		setTimeout(function(){
-			current_slide.removeClass('slideToLeft-active').addClass('inactive');
-			next_slide.removeClass('slideFromRight-active');
-		}, 2000);
+		current_slide.bind('oanimationend animationend webkitAnimationEnd', function() { 
+		    current_slide.removeClass(current_class)
+			if (current_slide.hasClass('active')==false){
+				current_slide.addClass('inactive');
+			} 
+		});
+		next_slide.bind('oanimationend animationend webkitAnimationEnd', function() { 
+			next_slide.removeClass(next_class);
+		})
+
+		numHops += 1;
+		if (numHops==transitions.length){
+			numHops = 0;
+		}
+		
+	}
+	
+	$('body').keydown(function(e){
+		if (e.keyCode == 13) { applyTransition() } 
 	})
 
-	$('body').on('click', '#prev', function(){
-		let slide_index = $(this).closest('.active').attr("data-hopp");
-		let current_slide = $(hoppips[slide_index].current);
-		let next_slide = $(hoppips[slide_index].next);
-		let prev_slide = $(hoppips[slide_index].prev);
-		current_slide.addClass('slideToRight-active').removeClass('active slideFromRight-active');
-		prev_slide.addClass('active slideFromLeft-active').removeClass('inactive slideToLeft-active');
-		setTimeout(function(){
-			current_slide.removeClass('slideToRight-active').addClass('inactive');
-			prev_slide.removeClass('slideFromLeft-active');
-		}, 2000);
-	})
+	$('body').on('click', '#next', applyTransition);
 
 })
