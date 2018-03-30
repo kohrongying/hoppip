@@ -32,6 +32,10 @@ $(document).ready(function(){
 		  ['slideToTop-active', 'slideFromBottom-active'],
 		  ['slideToRight-active', 'slideFromLeft-active'],
 		  ['slideToBottom-active', 'slideFromTop-active'],
+		  ['fadeIntoBlack-active', 'slideFromRight-active'],
+		  ['fadeIntoBlack-active', 'slideFromLeft-active'],
+		  ['fadeIntoBlack-active', 'slideFromTop-active'],
+		  ['fadeIntoBlack-active', 'slideFromBottom-active']
 	];
 
 	const applyTransition = () => {

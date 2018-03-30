@@ -6,6 +6,7 @@ body {
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
+	background-color: black;
 }
 
 section.hoppip {
@@ -110,6 +111,10 @@ p {
 	animation: slideToBottom .6s ease both;
 }
 
+.fadeIntoBlack-active {
+	animation: fadeIntoBlack .6s ease both;
+}
+
 /* KEYFRAMES */
 
 @keyframes slideFromRight{
@@ -181,5 +186,15 @@ p {
 	}
 	to {
 		top: 100%;
+	}
+}
+
+@keyframes fadeIntoBlack {
+	from {
+		background-image: linear-gradient(to right,#bdc3c7,#2c3e50);
+		opacity: 0.6;
+	}
+	to {
+		opacity: 0;
 	}
 }
