@@ -78,19 +78,19 @@ p {
 }
 
 .slideFromRight-active {
-	animation: slideFromRight 2s;
+	animation: slideFromRight .6s ease both;
 }
 
 .slideToLeft-active {
-	animation: slideToLeft 2s;
+	animation: slideToLeft .6s ease both;
 }
 
 .slideToRight-active {
-	animation: slideToRight 2s;
+	animation: slideToRight .6s ease both;
 }
 
 .slideFromLeft-active {
-	animation: slideFromLeft 2s;
+	animation: slideFromLeft .6s ease both;
 }
 
 @keyframes slideFromRight{

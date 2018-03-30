@@ -33,19 +33,32 @@ $(document).ready(function(){
 		let prev_slide = $(hoppips[slide_index].prev);
 
 		if (e.keyCode == 39) { //right
+
+			next_slide.addClass('slideFromRight-active active').removeClass('inactive');
 			current_slide.addClass('slideToLeft-active').removeClass('active');
-			next_slide.removeClass('inactive').addClass('slideFromRight-active active');
-			setTimeout(function(){
-				current_slide.removeClass('slideToLeft-active').addClass('inactive');
+			
+			current_slide.bind('oanimationend animationend webkitAnimationEnd', function() { 
+			    current_slide.removeClass('slideToLeft-active')
+				if (current_slide.hasClass('active')==false){
+					current_slide.addClass('inactive');
+				} 
+			});
+			next_slide.bind('oanimationend animationend webkitAnimationEnd', function() { 
 				next_slide.removeClass('slideFromRight-active');
-			}, 2000);
+			})
 		} else if (e.keyCode == 37) { //left
 			current_slide.addClass('slideToRight-active').removeClass('active slideFromRight-active');
 			prev_slide.addClass('active slideFromLeft-active').removeClass('inactive slideToLeft-active');
-			setTimeout(function(){
-				current_slide.removeClass('slideToRight-active').addClass('inactive');
+			
+			current_slide.bind('oanimationend animationend webkitAnimationEnd', function() { 
+			    if (current_slide.hasClass('active')==false){
+					current_slide.addClass('inactive');
+				}
+				current_slide.removeClass('slideToRight-active'); 
+			});
+			prev_slide.bind('oanimationend animationend webkitAnimationEnd', function() { 
 				prev_slide.removeClass('slideFromLeft-active');
-			}, 2000);
+			})
 		}
 	})
 
@@ -55,8 +68,9 @@ $(document).ready(function(){
 		let next_slide = $(hoppips[slide_index].next);
 		let prev_slide = $(hoppips[slide_index].prev);
 
+		next_slide.addClass('slideFromRight-active active').removeClass('inactive');
 		current_slide.addClass('slideToLeft-active').removeClass('active');
-		next_slide.removeClass('inactive').addClass('slideFromRight-active active');
+		
 		setTimeout(function(){
 			current_slide.removeClass('slideToLeft-active').addClass('inactive');
 			next_slide.removeClass('slideFromRight-active');

@@ -1,0 +1,41 @@
+{
+  "name": "hoppip",
+  "version": "1.0.0",
+  "description": "Inspired by [this](https://www.cssscript.com/demo/full-page-slide-transitions-with-css3-and-bespoke-fx/) and [this](https://tympanus.net/Development/PageTransitions/) so I tried to implement it myself too. Tried to do so without using bootstrap or any other CSS frameworks, lets go #bootstrapless. (lol)",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "del": "^3.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-jshint": "^2.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^3.2.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp-htmlmin": "^4.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kohrongying/hoppip.git"
+  },
+  "keywords": [
+    "page",
+    "transitions",
+    "css"
+  ],
+  "author": "kohrongying",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kohrongying/hoppip/issues"
+  },
+  "homepage": "https://github.com/kohrongying/hoppip#readme"
+}
