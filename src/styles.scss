@@ -115,6 +115,14 @@ p {
 	animation: fadeIntoBlack .6s ease both;
 }
 
+.scaleDown-active {
+	animation: scaleDown .6s ease both;
+}
+
+.scaleUp-active {
+	animation: scaleUp .6s ease both;
+}
+
 /* KEYFRAMES */
 
 @keyframes slideFromRight{
@@ -196,5 +204,27 @@ p {
 	}
 	to {
 		opacity: 0;
+	}
+}
+
+@keyframes scaleDown {
+	from {
+		transform: scale(1);
+		opacity: 1;
+	}
+	to {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@keyframes scaleUp {
+	from {
+		transform: scale(0);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
 	}
 }
